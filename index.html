@@ -16,41 +16,114 @@
       font-family: Inter, Arial, sans-serif;
       height: 100vh;
       overflow: hidden;
-      background: linear-gradient(135deg, #ff7a18 0%, #ff5f57 100%);
-      color: white;
+      background: #f7f7f5;
+      color: #111;
       position: relative;
     }
 
+    /* TOP BAR */
+
     .topbar {
       position: absolute;
-      top: 42px;
-      right: 48px;
+      top: 28px;
+      right: 34px;
       display: flex;
-      gap: 12px;
+      align-items: center;
+      gap: 14px;
+      z-index: 5;
+    }
+
+    .export-wrapper {
+      position: relative;
+      display: flex;
       align-items: center;
     }
 
-    .share {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.7);
-      padding: 10px 16px;
-      border-radius: 12px;
-      font-size: 14px;
-      backdrop-filter: blur(10px);
+    .pulse {
+      position: absolute;
+      inset: -18px;
+      border-radius: 22px;
+      border: 2px solid rgba(255, 90, 50, 0.16);
+      animation: pulse 2.4s infinite;
     }
 
-    .export {
-      background: white;
-      color: black;
-      padding: 10px 18px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 600;
-      box-shadow:
-        0 0 0 8px rgba(255,255,255,0.12),
-        0 10px 30px rgba(0,0,0,0.15);
+    .pulse:nth-child(2) {
+      animation-delay: 0.8s;
     }
+
+    .pulse:nth-child(3) {
+      animation-delay: 1.6s;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.92);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.35);
+        opacity: 0;
+      }
+    }
+
+    .export-button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow:
+        0 2px 8px rgba(0,0,0,0.04),
+        0 10px 30px rgba(0,0,0,0.06);
+      z-index: 2;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .export-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 24px;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .divider {
+      width: 1px;
+      height: 52px;
+      background: #d7d7d7;
+    }
+
+    .export-arrow {
+      width: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 18px;
+    }
+
+    .share-button {
+      background: rgba(0,0,0,0.04);
+      padding: 18px 26px;
+      border-radius: 18px;
+      font-size: 22px;
+      color: #111;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0.85;
+    }
+
+    /* CENTER */
 
     .center {
       position: absolute;
@@ -60,87 +133,225 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      pointer-events: none;
+      z-index: 2;
+    }
+
+    .confetti {
+      font-size: 46px;
+      margin-bottom: 18px;
+      animation: confettiFade 2.2s forwards;
+    }
+
+    @keyframes confettiFade {
+      0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.9);
+      }
+
+      20% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      80% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
     }
 
     h1 {
-      font-size: 76px;
+      font-size: 86px;
       line-height: 0.95;
       font-weight: 800;
-      letter-spacing: -3px;
-      margin-bottom: 24px;
+      letter-spacing: -4px;
+      margin-bottom: 26px;
+
+      background: linear-gradient(135deg, #ff7a18 0%, #ff5f57 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     p {
-      font-size: 24px;
-      line-height: 1.5;
-      opacity: 0.9;
-      max-width: 620px;
+      font-size: 32px;
+      line-height: 1.4;
+      color: #222;
+      max-width: 760px;
     }
+
+    .highlight {
+      color: #ff6a30;
+      font-weight: 600;
+    }
+
+    /* BOTTOM LINK */
+
+    .bottom-link {
+      position: absolute;
+      bottom: 56px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 18px;
+      color: #444;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      z-index: 3;
+      transition: opacity 0.2s ease;
+    }
+
+    .bottom-link:hover {
+      opacity: 0.7;
+    }
+
+    .bottom-link svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* ARROW */
 
     .arrow {
       position: absolute;
-      width: 280px;
-      height: 280px;
-      top: 290px;
-      right: 280px;
+      width: 520px;
+      height: 520px;
+      right: 210px;
+      top: 250px;
+      z-index: 1;
       opacity: 0.9;
+      pointer-events: none;
     }
 
     @media (max-width: 900px) {
       h1 {
-        font-size: 52px;
+        font-size: 58px;
       }
 
       p {
-        font-size: 18px;
+        font-size: 22px;
         padding: 0 24px;
       }
 
       .topbar {
-        top: 28px;
-        right: 24px;
+        transform: scale(0.78);
+        transform-origin: top right;
       }
 
       .arrow {
-        width: 180px;
-        height: 180px;
+        width: 320px;
+        height: 320px;
+        right: 80px;
         top: 340px;
-        right: 120px;
       }
     }
   </style>
 </head>
+
 <body>
 
+  <!-- TOP RIGHT -->
+
   <div class="topbar">
-    <div class="share">Share</div>
-    <div class="export">Export ▼</div>
+
+    <a class="export-wrapper" href="https://chatgpt.com">
+
+      <div class="pulse"></div>
+      <div class="pulse"></div>
+      <div class="pulse"></div>
+
+      <div class="export-button">
+
+        <div class="export-main">
+          ⤓
+          <span>Export</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="export-arrow">
+          ▼
+        </div>
+
+      </div>
+    </a>
+
+    <div class="share-button">
+      ↥
+      <span>Share</span>
+    </div>
+
   </div>
 
-  <svg class="arrow" viewBox="0 0 300 300" fill="none">
+  <!-- ARROW -->
+
+  <svg class="arrow" viewBox="0 0 600 600" fill="none">
     <path
-      d="M30 250C120 250 160 190 220 120"
-      stroke="white"
+      d="M110 520C250 500 350 400 470 180"
+      stroke="url(#grad)"
       stroke-width="10"
       stroke-linecap="round"
     />
+
     <path
-      d="M195 120L225 118L223 148"
-      stroke="white"
+      d="M438 188L474 170L486 206"
+      stroke="#ff7a18"
       stroke-width="10"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
+
+    <defs>
+      <linearGradient id="grad" x1="100" y1="520" x2="470" y2="180">
+        <stop stop-color="#ff7a18" stop-opacity="0" />
+        <stop offset="1" stop-color="#ff7a18" />
+      </linearGradient>
+    </defs>
   </svg>
 
+  <!-- CENTER -->
+
   <div class="center">
+
+    <div class="confetti">
+      🎉
+    </div>
+
     <h1>Congratulations!</h1>
 
     <p>
-      Your Export button is now active inside ChatGPT.
+      Your <span class="highlight">Export</span> button is now
+      <br />
+      active inside ChatGPT
     </p>
+
   </div>
+
+  <!-- BOTTOM LINK -->
+
+  <a class="bottom-link" href="https://chatgpt.com">
+
+    <svg viewBox="0 0 24 24" fill="none">
+      <path
+        d="M10 6L4 12L10 18"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M20 12H5"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+      />
+    </svg>
+
+    <span>Return to your ChatGPT conversation</span>
+
+  </a>
 
 </body>
 </html>
