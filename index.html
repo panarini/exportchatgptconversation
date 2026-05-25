@@ -1,28 +1,149 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Мой сайт</title>
+export default function WelcomePage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-orange-500 via-orange-400 to-red-400 text-white flex items-center justify-center p-8">
+      <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-16 items-center">
+        {/* Left Side */}
+        <div>
+          <div className="inline-flex items-center gap-3 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-8 backdrop-blur-sm">
+            <div className="w-3 h-3 rounded-full bg-white" />
+            <span className="text-sm font-medium tracking-wide">
+              Export ChatGPT
+            </span>
+          </div>
 
-  <style>
-    body {
-      font-family: Arial;
-      background: #111;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
+          <h1 className="text-6xl lg:text-7xl font-bold leading-[0.95] tracking-tight mb-6">
+            Your Export
+            <br />
+            button is ready
+          </h1>
 
-    h1 {
-      font-size: 48px;
-    }
-  </style>
-</head>
+          <p className="text-xl text-white/80 leading-relaxed max-w-xl mb-10">
+            Return to your ChatGPT conversation and click the Export
+            button to save your chat as a clean PDF document.
+          </p>
 
-<body>
-  <h1>Hello GitHub Pages</h1>
-</body>
-</html>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button className="bg-white text-orange-600 hover:bg-orange-50 transition-all duration-200 font-semibold px-8 py-4 rounded-2xl text-lg shadow-2xl">
+              Return to ChatGPT
+            </button>
+
+            <button className="border border-white/30 hover:bg-white/10 transition-all duration-200 text-white px-8 py-4 rounded-2xl text-lg backdrop-blur-sm">
+              Learn More
+            </button>
+          </div>
+
+          <div className="flex flex-wrap gap-4 mt-10 text-sm text-white/75">
+            <div className="bg-white/10 border border-white/15 px-4 py-2 rounded-full">
+              ✓ Code blocks
+            </div>
+            <div className="bg-white/10 border border-white/15 px-4 py-2 rounded-full">
+              ✓ Tables
+            </div>
+            <div className="bg-white/10 border border-white/15 px-4 py-2 rounded-full">
+              ✓ Formulas
+            </div>
+            <div className="bg-white/10 border border-white/15 px-4 py-2 rounded-full">
+              ✓ Images
+            </div>
+          </div>
+        </div>
+
+        {/* Right Side Mockup */}
+        <div className="relative">
+          {/* Main Window */}
+          <div className="bg-[#202123] rounded-[32px] overflow-hidden shadow-2xl border border-white/10">
+            {/* Browser Top */}
+            <div className="bg-[#2b2c2f] px-5 py-4 border-b border-white/5 flex items-center gap-3">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-400" />
+                <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                <div className="w-3 h-3 rounded-full bg-green-400" />
+              </div>
+
+              <div className="flex-1 bg-white/5 rounded-full px-5 py-2 text-sm text-white/40">
+                chatgpt.com
+              </div>
+            </div>
+
+            {/* Chat Area */}
+            <div className="p-8 space-y-6">
+              {/* Top Actions */}
+              <div className="flex justify-end gap-3 mb-8">
+                <button className="bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-sm text-white/70">
+                  Share
+                </button>
+
+                <button className="bg-white text-black px-4 py-2 rounded-xl text-sm font-medium shadow-lg relative ring-4 ring-orange-400/40">
+                  <span className="flex items-center gap-2">
+                    Export
+                    <span className="text-black/60">▼</span>
+                  </span>
+
+                  {/* Pulse */}
+                  <div className="absolute inset-0 rounded-xl border border-white animate-ping opacity-20" />
+                </button>
+              </div>
+
+              {/* User Bubble */}
+              <div className="bg-white/5 rounded-2xl p-5 max-w-[85%]">
+                <div className="text-white/90 text-sm leading-relaxed">
+                  Explain how quicksort works and provide an example.
+                </div>
+              </div>
+
+              {/* Assistant Bubble */}
+              <div className="space-y-4">
+                <div className="text-white/80 text-sm leading-relaxed">
+                  Quicksort is a divide-and-conquer sorting algorithm.
+                </div>
+
+                {/* Code Block */}
+                <div className="bg-black/40 border border-white/5 rounded-2xl overflow-hidden">
+                  <div className="px-4 py-2 border-b border-white/5 text-xs text-white/40">
+                    Python
+                  </div>
+
+                  <pre className="p-5 text-sm overflow-hidden text-orange-200 leading-relaxed">
+{`def quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+
+    pivot = arr[len(arr)//2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+
+    return quicksort(left) + middle + quicksort(right)`}
+                  </pre>
+                </div>
+
+                {/* Formula */}
+                <div className="bg-white/5 rounded-xl px-4 py-3 inline-flex text-sm text-white/80">
+                  O(n log n)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Floating PDF Card */}
+          <div className="absolute -right-10 bottom-10 rotate-6 bg-white text-gray-900 rounded-3xl shadow-2xl w-52 overflow-hidden border border-black/5">
+            <div className="bg-red-500 text-white text-xs font-semibold px-4 py-2 tracking-wide">
+              PDF EXPORT
+            </div>
+
+            <div className="p-5 space-y-3">
+              <div className="h-3 bg-gray-200 rounded-full w-3/4" />
+              <div className="h-3 bg-gray-200 rounded-full w-full" />
+              <div className="h-3 bg-gray-200 rounded-full w-5/6" />
+
+              <div className="bg-gray-100 rounded-xl p-3 mt-4">
+                <div className="h-2 bg-gray-300 rounded-full w-2/3 mb-2" />
+                <div className="h-2 bg-gray-300 rounded-full w-full" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
