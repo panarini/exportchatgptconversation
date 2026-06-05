@@ -37,9 +37,23 @@ var strings = {
 document.getElementById('ai-text').innerHTML = strings.aiMsg;
 
 // ── Navigation ────────────────────────────────────────────────────────────────
-// Standalone GitHub Pages version — no Chrome APIs needed.
-// The highlight flag is set by background.js at install time.
+var EXTENSION_ID = 'aighdeikamhkemngfanhnamdlpoceimo';
+
 function goToChatGPT() {
+    // Try to communicate with the extension for smart tab navigation
+    if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.sendMessage) {
+        try {
+            chrome.runtime.sendMessage(EXTENSION_ID, {action: 'openChatGPT'}, function(response) {
+                if (chrome.runtime.lastError || !response) {
+                    // Extension not installed or can't communicate — fallback
+                    window.open('https://chatgpt.com', '_blank');
+                }
+                // If successful, extension handles the navigation
+            });
+            return;
+        } catch(e) {}
+    }
+    // Fallback for non-Chrome or extension not installed
     window.open('https://chatgpt.com', '_blank');
 }
 
