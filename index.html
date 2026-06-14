@@ -533,7 +533,7 @@ function goToChatGPT() {
             chrome.runtime.sendMessage(EXTENSION_ID, {action: 'openChatGPT'}, function(response) {
                 if (chrome.runtime.lastError || !response) {
                     // Extension not installed or can't communicate — fallback
-                    window.open('https://chatgpt.com', '_blank');
+                    window.open('https://chatgpt.com', 'chatgpt_tab');
                 }
                 // If successful, extension handles the navigation
             });
@@ -541,7 +541,7 @@ function goToChatGPT() {
         } catch(e) {}
     }
     // Fallback for non-Chrome or extension not installed
-    window.open('https://chatgpt.com', '_blank');
+    window.open('https://chatgpt.com', 'chatgpt_tab');
 }
 
 document.getElementById('export-btn').addEventListener('click', goToChatGPT);
