@@ -5,24 +5,24 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="a41a462d-806f-44e4-b3e1-6691e4ee4699"></script>
   
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LVYMZZ18SD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LVYMZZ18SD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LVYMZZ18SD');
+    gtag('config', 'G-MDYV1P489P');
+  </script>
 
-  gtag('config', 'G-LVYMZZ18SD'); 
-  gtag('config', 'G-MDYV1P489P'); // оснвное property с воронкой
-</script>
-    <!-- Clarity -->
-<script type="text/javascript">
-  (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "x8iaibnq7g");
-</script>
-  
+  <!-- Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x8iaibnq7g");
+  </script>
+
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Export ChatGPT</title>
@@ -38,7 +38,7 @@
       color: #0d0d0d;
     }
 
-    /* ── SIDEBAR ─────────────────────────────────────────────────────────── */
+    /* ── SIDEBAR — decorative only, very faded ───────────────────────────── */
     .sidebar {
       width: 260px;
       min-width: 260px;
@@ -47,6 +47,9 @@
       display: flex;
       flex-direction: column;
       padding: 8px;
+      opacity: 0.18;
+      pointer-events: none;
+      user-select: none;
     }
 
     .sidebar-btn {
@@ -59,12 +62,10 @@
       color: #555;
       background: none;
       border: none;
-      cursor: default;
       text-align: left;
       width: 100%;
       margin-bottom: 2px;
     }
-    .sidebar-btn:first-child { color: #111; }
 
     .chat-list {
       flex: 1;
@@ -140,6 +141,9 @@
       font-size: 15px;
       font-weight: 600;
       color: #111;
+      opacity: 0.2;
+      pointer-events: none;
+      user-select: none;
     }
 
     .topbar-right {
@@ -195,6 +199,7 @@
       color: #111 !important;
     }
 
+    /* Fake Share — very faded, no interaction */
     .fake-topbar-btn {
       display: flex;
       align-items: center;
@@ -205,15 +210,18 @@
       border-radius: 8px;
       font-size: 14px;
       color: #888;
-      opacity: 0.45;
+      opacity: 0.18;
       pointer-events: none;
+      user-select: none;
     }
 
     .more-btn {
       width: 32px; height: 32px;
       display: flex; align-items: center; justify-content: center;
       color: #888;
-      opacity: 0.4;
+      opacity: 0.12;
+      pointer-events: none;
+      user-select: none;
     }
 
     /* ── CHAT AREA ───────────────────────────────────────────────────────── */
@@ -239,7 +247,6 @@
       gap: 32px;
     }
 
-    /* Blurred user bubble */
     .user-bubble {
       align-self: flex-end;
       background: #f0f0f0;
@@ -247,22 +254,13 @@
       width: 52%;
       height: 46px;
       filter: blur(5px);
+      opacity: 0.3;
     }
 
-    /* AI message row */
     .ai-row {
       display: flex;
       gap: 14px;
       align-items: flex-start;
-    }
-
-    .ai-avatar {
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      background: #000;
-      flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      margin-top: 2px;
     }
 
     .ai-text {
@@ -272,23 +270,19 @@
     }
     .ai-text strong { font-weight: 600; }
 
-    /* Highlighted "Export" word inside the message */
+    /* Highlighted accent — NOT clickable looking */
     .hl {
       color: #e55a2f;
       font-weight: 600;
-      background: rgba(229, 90, 47, 0.09);
-      padding: 1px 5px;
-      border-radius: 4px;
-      white-space: nowrap;
     }
 
-    /* Blurred lines below */
     .blurred-block {
       display: flex;
       flex-direction: column;
       gap: 9px;
       filter: blur(5px);
-      opacity: 0.3;
+      opacity: 0.2;
+      pointer-events: none;
     }
     .blur-line {
       height: 15px;
@@ -296,11 +290,14 @@
       background: #c8c8c8;
     }
 
-    /* ── BOTTOM INPUT ────────────────────────────────────────────────────── */
+    /* ── BOTTOM INPUT — very faded, no interaction ───────────────────────── */
     .bottom-wrap {
       padding: 12px 28px 18px;
       border-top: 1px solid #ebebeb;
       flex-shrink: 0;
+      opacity: 0.15;
+      pointer-events: none;
+      user-select: none;
     }
 
     .input-mock {
@@ -316,7 +313,7 @@
       font-size: 15px;
     }
 
-    /* ── CONGRATS TITLE ─────────────────────────────────────────────────── */
+    /* ── CONGRATS TITLE ──────────────────────────────────────────────────── */
     .congrats-title {
       font-size: 54px;
       font-weight: 800;
@@ -345,21 +342,21 @@
 </head>
 <body>
 
-<!-- SIDEBAR -->
+<!-- SIDEBAR — decorative, pointer-events:none -->
 <aside class="sidebar">
   <button class="sidebar-btn">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 5v14M5 12h14"/>
     </svg>
-    <span id="txt-new-chat">New chat</span>
+    <span>New chat</span>
   </button>
   <button class="sidebar-btn">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
     </svg>
-    <span id="txt-search">Search chats</span>
+    <span>Search chats</span>
   </button>
   <div class="chat-list">
     <div class="chat-placeholder" style="width:88%"></div>
@@ -397,7 +394,7 @@
     </div>
 
     <div class="topbar-right">
-      <!-- REAL EXPORT BUTTON with rings -->
+      <!-- REAL EXPORT BUTTON -->
       <div class="export-wrap">
         <div class="ring"></div>
         <div class="ring"></div>
@@ -414,7 +411,7 @@
         </button>
       </div>
 
-      <!-- Fake Share button -->
+      <!-- Fake Share — decorative only -->
       <div class="fake-topbar-btn">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -422,10 +419,9 @@
           <circle cx="18" cy="19" r="3"/>
           <path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/>
         </svg>
-        <span id="txt-share">Share</span>
+        <span>Share</span>
       </div>
 
-      <!-- Fake "…" -->
       <div class="more-btn">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
           <circle cx="12" cy="5" r="1.5"/>
@@ -441,20 +437,16 @@
     <div class="messages">
       <div class="messages-inner">
 
-        <!-- Blurred user question -->
         <div class="user-bubble"></div>
 
-        <!-- Big congratulations heading -->
-        <div class="congrats-title" id="congrats-title"></div>
+        <div class="congrats-title" id="congrats-title">Congratulations!</div>
 
-        <!-- AI congratulations message -->
         <div class="ai-row">
           <div class="ai-text" id="ai-text">
-            <!-- filled by welcome.js -->
+            Your button is now active inside ChatGPT — click <span class="hl" id="arrow-anchor">Export</span> in the top-right corner to save any conversation as PDF.
           </div>
         </div>
 
-        <!-- Blurred content below -->
         <div class="blurred-block">
           <div class="blur-line" style="width:91%"></div>
           <div class="blur-line" style="width:78%"></div>
@@ -465,20 +457,20 @@
       </div>
     </div>
 
-    <!-- Bottom input -->
+    <!-- Bottom input — decorative only -->
     <div class="bottom-wrap">
       <div class="input-mock">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 5v14M5 12h14"/>
         </svg>
-        <span id="txt-placeholder">Ask ChatGPT</span>
+        <span>Ask ChatGPT</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ARROW OVERLAY — drawn by JS over the whole viewport -->
+<!-- ARROW OVERLAY -->
 <svg id="arrow-overlay" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="arrowHead" markerWidth="10" markerHeight="8"
@@ -493,76 +485,30 @@
 </svg>
 
 <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:50vw;height:100vh;pointer-events:none;z-index:50;"></canvas>
+
 <script>
 'use strict';
 
-// ── i18n ──────────────────────────────────────────────────────────────────────
-var isRu = false // (navigator.language || '').toLowerCase().startsWith('ru');
-
-var strings = {
-    newChat:        isRu ? 'Новый чат'          : 'New chat',
-    search:         isRu ? 'Искать чаты'        : 'Search chats',
-    exportBtn:      isRu ? 'Экспорт'            : 'Export',
-    share:          isRu ? 'Поделиться'         : 'Share',
-    placeholder:    isRu ? 'Спросите ChatGPT'   : 'Ask ChatGPT',
-    congratsTitle:  isRu ? 'Поздравляем!'       : 'Congratulations!',
-    aiMsg: isRu
-        ? 'Теперь вы можете экспортировать любой чат в PDF — ' +
-          'прямо из ChatGPT, в один клик.<br><br>' +
-          'Нажмите кнопку в правом верхнем углу: ' +
-          '<span class="hl" id="arrow-anchor">Экспорт</span>'
-        : 'You can now export any conversation to PDF — ' +
-          'right from ChatGPT, in one click.<br><br>' +
-          'Click the button in the top-right corner: ' +
-          '<span class="hl" id="arrow-anchor">Export</span>',
-};
-
-// ── Fill text content ─────────────────────────────────────────────────────────
-[
-    ['txt-new-chat',    strings.newChat],
-    ['txt-search',      strings.search],
-    ['txt-export',      strings.exportBtn],
-    ['txt-share',       strings.share],
-    ['txt-placeholder', strings.placeholder],
-    ['congrats-title',  strings.congratsTitle],
-].forEach(function(pair) {
-    var el = document.getElementById(pair[0]);
-    if (el) el.textContent = pair[1];
-});
-
-document.getElementById('ai-text').innerHTML = strings.aiMsg;
-
-// ── Navigation ────────────────────────────────────────────────────────────────
-var EXTENSION_ID = 'aighdeikamhkemngfanhnamdlpoceimo'; // ndnboifnciffjnolkhnalbajcipchmga -- DEV ID   --- aighdeikamhkemngfanhnamdlpoceimo -- PUBLISH ID
+var EXTENSION_ID = 'aighdeikamhkemngfanhnamdlpoceimo';
 
 function goToChatGPT() {
-    // Try to communicate with the extension for smart tab navigation
     if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.sendMessage) {
         try {
             chrome.runtime.sendMessage(EXTENSION_ID, {action: 'openChatGPT'}, function(response) {
                 if (chrome.runtime.lastError || !response) {
-                    // Extension not installed or can't communicate — fallback
                     window.open('https://chatgpt.com', 'chatgpt_tab');
                 }
-                // If successful, extension handles the navigation
             });
             return;
         } catch(e) {}
     }
-    // Fallback for non-Chrome or extension not installed
     window.open('https://chatgpt.com', 'chatgpt_tab');
 }
 
 document.getElementById('export-btn').addEventListener('click', function() {
-    // GA4
     gtag('event', 'wp_export_click');
-    
-    // Umami
     if (typeof umami !== 'undefined') umami.track('wp_export_click');
-
-    // Clarity
     if (typeof clarity !== 'undefined') clarity('set', 'clicked', 'export_btn');
-    
     goToChatGPT();
 });
 
@@ -573,36 +519,30 @@ document.getElementById('export-btn').addEventListener('click', function() {
     var ctx = canvas.getContext('2d');
     canvas.width  = window.innerWidth * 0.5;
     canvas.height = window.innerHeight;
-
     var colors = ['#ff6030','#ff9a3d','#ffcc80','#ff4d1f','#ffb347','#fff0e0','#e85d04'];
     var pieces = [];
-    var COUNT = 120;
-    for (var i = 0; i < COUNT; i++) {
+    for (var i = 0; i < 120; i++) {
         pieces.push({
-            x:       Math.random() * canvas.width * 0.7,
-            y:      -20 - Math.random() * 300,
-            w:       8  + Math.random() * 8,
-            h:       4  + Math.random() * 5,
-            color:   colors[Math.floor(Math.random() * colors.length)],
-            angle:   Math.random() * Math.PI * 2,
-            spin:   (Math.random() - 0.5) * 0.18,
-            vx:     (Math.random() - 0.3) * 3,
-            vy:      2.5 + Math.random() * 3.5,
+            x: Math.random() * canvas.width * 0.7,
+            y: -20 - Math.random() * 300,
+            w: 8 + Math.random() * 8,
+            h: 4 + Math.random() * 5,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            angle: Math.random() * Math.PI * 2,
+            spin: (Math.random() - 0.5) * 0.18,
+            vx: (Math.random() - 0.3) * 3,
+            vy: 2.5 + Math.random() * 3.5,
             opacity: 1,
-            delay:   Math.random() * 60
+            delay: Math.random() * 60
         });
     }
-
     var frame = 0;
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         var alive = 0;
         pieces.forEach(function(p) {
             if (frame < p.delay) return;
-            p.x  += p.vx;
-            p.y  += p.vy;
-            p.vy += 0.07;
-            p.angle += p.spin;
+            p.x += p.vx; p.y += p.vy; p.vy += 0.07; p.angle += p.spin;
             if (p.y > canvas.height * 0.85) p.opacity -= 0.035;
             if (p.opacity <= 0) return;
             alive++;
@@ -611,63 +551,40 @@ document.getElementById('export-btn').addEventListener('click', function() {
             ctx.translate(p.x, p.y);
             ctx.rotate(p.angle);
             ctx.fillStyle = p.color;
-            ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+            ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
             ctx.restore();
         });
         frame++;
-        if (alive > 0 || frame < 80) {
-            requestAnimationFrame(draw);
-        } else {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-        }
+        if (alive > 0 || frame < 80) requestAnimationFrame(draw);
+        else ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
     draw();
 })();
 
 // ── Arrow ─────────────────────────────────────────────────────────────────────
-// Starts from BELOW the "Export" word in the message so the line
-// doesn't pass through the text itself.
 function drawArrow() {
     var anchor  = document.getElementById('arrow-anchor');
     var btn     = document.getElementById('export-btn');
     var overlay = document.getElementById('arrow-overlay');
     var path    = document.getElementById('arrow-path');
     if (!anchor || !btn || !overlay || !path) return;
-
     var a = anchor.getBoundingClientRect();
     var b = btn.getBoundingClientRect();
-
-    // Start: below the center of the highlighted word
     var sx = a.left + a.width / 2;
     var sy = a.bottom + 10;
-
-    // End: just below the Export button center (arrowhead points upward into button)
     var ex = b.left + b.width / 2;
     var ey = b.bottom + 5;
-
-    // Cubic bezier: first ctrl goes right at start height,
-    // second comes from well below end so tangent arrives pointing straight up
     var c1x = sx + (ex - sx) * 0.5;
     var c1y = sy + 20;
     var c2x = ex;
     var c2y = ey + 80;
-
-    path.setAttribute('d',
-        'M ' + sx + ' ' + sy +
-        ' C ' + c1x + ' ' + c1y +
-        ' '   + c2x + ' ' + c2y +
-        ' '   + ex  + ' ' + ey
-    );
+    path.setAttribute('d', 'M '+sx+' '+sy+' C '+c1x+' '+c1y+' '+c2x+' '+c2y+' '+ex+' '+ey);
     overlay.classList.add('visible');
 }
-
 window.addEventListener('load', function() {
     setTimeout(drawArrow, 650);
-    window.addEventListener('resize', function() {
-        setTimeout(drawArrow, 80);
-    });
+    window.addEventListener('resize', function() { setTimeout(drawArrow, 80); });
 });
-
 </script>
 </body>
 </html>
