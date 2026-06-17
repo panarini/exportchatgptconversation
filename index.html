@@ -544,7 +544,15 @@ function goToChatGPT() {
     window.open('https://chatgpt.com', 'chatgpt_tab');
 }
 
-document.getElementById('export-btn').addEventListener('click', goToChatGPT);
+document.getElementById('export-btn').addEventListener('click', function() {
+    // GA4
+    gtag('event', 'wp_export_click');
+    
+    // Umami
+    if (typeof umami !== 'undefined') umami.track('wp_export_click');
+    
+    goToChatGPT();
+});
 
 // ── Confetti ──────────────────────────────────────────────────────────────────
 (function() {
