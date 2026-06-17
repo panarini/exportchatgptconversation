@@ -558,6 +558,9 @@ document.getElementById('export-btn').addEventListener('click', function() {
     
     // Umami
     if (typeof umami !== 'undefined') umami.track('wp_export_click');
+
+    // Clarity
+    if (typeof clarity !== 'undefined') clarity('set', 'clicked', 'export_btn');
     
     goToChatGPT();
 });
