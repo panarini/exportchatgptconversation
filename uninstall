@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>You've removed Export ChatGPT</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f9f9f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px 40px;
+      color: #0d0d0d;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #ebebeb;
+      border-radius: 16px;
+      padding: 40px 44px 36px;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .icon { font-size: 36px; margin-bottom: 18px; }
+    h1 { font-size: 22px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.3px; }
+    .subtitle { font-size: 14px; color: #666; line-height: 1.55; margin-bottom: 32px; }
+    .form-wrap { width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid #ebebeb; margin-bottom: 28px; }
+    .form-wrap iframe { display: block; width: 100%; height: 420px; border: none; }
+    .reinstall { font-size: 13px; color: #999; }
+    .reinstall a { color: #EA4C3A; text-decoration: none; font-weight: 600; }
+    .reinstall a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">👋</div>
+    <h1>Sorry to see you go</h1>
+    <p class="subtitle">
+      It takes 30 seconds and helps us improve.<br>
+      What made you remove <strong>Export ChatGPT</strong>?
+    </p>
+    <div class="form-wrap">
+      <iframe
+        src="https://docs.google.com/forms/d/e/https://forms.gle/yTQFdsHXk41Cu4haA/viewform?embedded=true"
+        frameborder="0" marginheight="0" marginwidth="0" loading="lazy"
+      >Loading…</iframe>
+    </div>
+    <p class="reinstall">
+      Changed your mind?
+      <a href="https://chromewebstore.google.com/detail/aighdeikamhkemngfanhnamdlpoceimo" target="_blank">Reinstall the extension</a>
+    </p>
+  </div>
+</body>
+</html>
