@@ -38,7 +38,6 @@
       color: #0d0d0d;
     }
 
-    /* ── SIDEBAR — decorative only, very faded ───────────────────────────── */
     .sidebar {
       width: 260px;
       min-width: 260px;
@@ -114,7 +113,6 @@
       user-select: none;
     }
 
-    /* ── MAIN ────────────────────────────────────────────────────────────── */
     .main {
       flex: 1;
       display: flex;
@@ -123,7 +121,6 @@
       min-width: 0;
     }
 
-    /* ── TOPBAR ──────────────────────────────────────────────────────────── */
     .topbar {
       display: flex;
       align-items: center;
@@ -153,7 +150,6 @@
       gap: 10px;
     }
 
-    /* Export button + ripple rings */
     .export-wrap { position: relative; }
 
     .ring {
@@ -199,7 +195,6 @@
       color: #111 !important;
     }
 
-    /* Fake Share — very faded, no interaction */
     .fake-topbar-btn {
       display: flex;
       align-items: center;
@@ -224,7 +219,6 @@
       user-select: none;
     }
 
-    /* ── CHAT AREA ───────────────────────────────────────────────────────── */
     .chat-area {
       flex: 1;
       overflow: hidden;
@@ -270,10 +264,23 @@
     }
     .ai-text strong { font-weight: 600; }
 
-    /* Highlighted accent — NOT clickable looking */
     .hl {
       color: #e55a2f;
       font-weight: 600;
+    }
+
+    /* Кликабельная ссылка Export в тексте */
+    .hl-link {
+      color: #e55a2f;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(229, 90, 47, 0.4);
+      transition: text-decoration-color 0.15s;
+    }
+    .hl-link:hover {
+      text-decoration-color: #e55a2f;
     }
 
     .blurred-block {
@@ -290,7 +297,6 @@
       background: #c8c8c8;
     }
 
-    /* ── BOTTOM INPUT — very faded, no interaction ───────────────────────── */
     .bottom-wrap {
       padding: 12px 28px 18px;
       border-top: 1px solid #ebebeb;
@@ -313,7 +319,6 @@
       font-size: 15px;
     }
 
-    /* ── CONGRATS TITLE ──────────────────────────────────────────────────── */
     .congrats-title {
       font-size: 54px;
       font-weight: 800;
@@ -326,7 +331,6 @@
       padding-bottom: 4px;
     }
 
-    /* ── ARROW OVERLAY ───────────────────────────────────────────────────── */
     #arrow-overlay {
       position: fixed;
       inset: 0;
@@ -342,7 +346,6 @@
 </head>
 <body>
 
-<!-- SIDEBAR — decorative, pointer-events:none -->
 <aside class="sidebar">
   <button class="sidebar-btn">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -380,10 +383,8 @@
   </div>
 </aside>
 
-<!-- MAIN -->
 <div class="main">
 
-  <!-- TOPBAR -->
   <header class="topbar">
     <div class="topbar-brand">
       <span>ChatGPT</span>
@@ -394,7 +395,6 @@
     </div>
 
     <div class="topbar-right">
-      <!-- REAL EXPORT BUTTON -->
       <div class="export-wrap">
         <div class="ring"></div>
         <div class="ring"></div>
@@ -411,7 +411,6 @@
         </button>
       </div>
 
-      <!-- Fake Share — decorative only -->
       <div class="fake-topbar-btn">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -432,7 +431,6 @@
     </div>
   </header>
 
-  <!-- CHAT -->
   <div class="chat-area">
     <div class="messages">
       <div class="messages-inner">
@@ -443,7 +441,7 @@
 
         <div class="ai-row">
           <div class="ai-text" id="ai-text">
-            Your button is now active inside ChatGPT — click <span class="hl" id="arrow-anchor">Export</span> in the top-right corner to save any conversation as PDF.
+            Your button is now active inside ChatGPT — click <span class="hl-link" id="arrow-anchor">Export</span> in the top-right corner to save any conversation as PDF.
           </div>
         </div>
 
@@ -457,7 +455,6 @@
       </div>
     </div>
 
-    <!-- Bottom input — decorative only -->
     <div class="bottom-wrap">
       <div class="input-mock">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -470,7 +467,6 @@
   </div>
 </div>
 
-<!-- ARROW OVERLAY -->
 <svg id="arrow-overlay" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="arrowHead" markerWidth="10" markerHeight="8"
@@ -505,12 +501,15 @@ function goToChatGPT() {
     window.open('https://chatgpt.com', 'chatgpt_tab');
 }
 
-document.getElementById('export-btn').addEventListener('click', function() {
+function handleExportClick() {
     gtag('event', 'wp_export_click');
     if (typeof umami !== 'undefined') umami.track('wp_export_click');
     if (typeof clarity !== 'undefined') clarity('set', 'clicked', 'export_btn');
     goToChatGPT();
-});
+}
+
+document.getElementById('export-btn').addEventListener('click', handleExportClick);
+document.getElementById('arrow-anchor').addEventListener('click', handleExportClick);
 
 // ── Confetti ──────────────────────────────────────────────────────────────────
 (function() {
